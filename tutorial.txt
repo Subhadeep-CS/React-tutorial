@@ -1,0 +1,254 @@
+1. create-react-app
+	=> additional/ node modules
+
+2. vite
+	=> scaffolding
+	=> HMR(Hot Module Replacement)/ fast
+
+npx create-vite@latest
+
+npm=> repository all list of node library
+
+Application =>
+
+npm run start => npm start
+
+npm run command
+
+npm update => update the package
+
+
+Package.json
+
+dependencies=> application depends on that, without those package application does not run anymore
+
+devDependencies=> Development Dependency, without this your application can run but not functional
+
+npm install -D package_name
+
+React Library=>
+
+1. React => main library
+2. ReactDOM => Bridge between React and DOM
+
+1. SPA=> Single Page Application
+2. Client Side Routing
+
+
+
+Step by step folder structure=>
+
+
+1. Cleaning index.css , App.css and assets folder and App.jsx inside element
+
+2. Layout making=>
+	
+	create a folder called layout
+	
+	Baisc Header Footer Content=> dynamically load
+	
+	For Header=> create a Folder Common=> create a Header Folder
+	For Footer=> create a Footer folder
+
+For Content You have to do routing
+
+3. Writing module css => https://create-react-app.dev/docs/adding-a-css-modules-stylesheet/
+
+4. Export strategies
+
+1. You cannot so multiple default export in a file
+	export default const varibale_name=["Arnab"];
+	import variable_name  from "./"
+
+2. But you can do multiple normal export in a file
+
+	export const varible_name=["Arnab"];
+	
+	import {varible_name} from "./"
+
+
+Routing in React=> Client side routing=> routing controlled by browser
+
+1. For routing you need a external package react-router-dom
+
+npm install -D react-router-dom
+
+1. BrowserRouter 2. HashRouter
+
+How to provide Routing in the application
+
+import {BrowserRouter} from "react-router-dom"
+
+<BrowserRouter>
+      <App />
+    </BrowserRouter>
+
+Now you application is configure for routing
+
+2. How to write Routing Path
+
+import Routes and Route component from react router dom
+
+<Routes>
+</Routes>
+
+then inside that we have to write the orginal routing method
+Route component takes two props 1. path={"/"} 2. element={<Home/>}
+<Route path={"/"} 2. element={<Home/>}/>
+
+How to Attach Routing to a path
+
+import Link component from react-router-dom
+
+<Link>
+
+then we have to pass a props to attach the routing path
+
+<Link to="/">Home</Link>
+
+
+
+<header>
+	<div></div>
+	<div></div>
+</header>
+
+
+<Layout>
+	<Route></Route>
+</Layout>
+
+JSX
+
+ARGUMENT=> props.children
+
+{children}
+
+JavaScript Object Destructring
+
+
+State=>
+
+JavaScript 
+
+let x=10;
+let y=20;
+
+JSX=>
+
+State => It's a react variable;
+
+Syntax
+
+1. useState()=> hooks=> Hooks normal javascript => other's hooks => you can't use any hooks inside js function
+
+Hooks=>
+
+1. By default=> React provide
+2. Custom hooks=> For customisation
+
+useState() hooks is used for holding variables values=>
+
+1. Array
+
+2. variable_name or state
+
+3. function(setState)
+
+const a=[10,20]
+a[0]
+a[1]
+
+Destructing=> unpack array or object
+
+const [a,b]=a
+
+setState=> 
+state=>
+
+Your component is re-render while updating the state by using setState
+
+How to update the state=>
+
+Directly update=>
+number+1
+
+Don't mutate the state
+
+prevState=> setState()=> callback function parameter=>prevState=>newState
+
+2 hooks => useState useEffect
+
+useEffect=> hooks is used for side effect of the component
+
+useEffect(()=>{
+
+},[])
+
+1. As a parameter 1. callback function 2. Dependency Array(VVI) (optional)
+
+Use Effect=> the function is dependent on the dependency array value
+
+Dependency Condition=>
+
+1. Empty Array=> the callback function is calling on the first render only
+
+2. Depedency Array is not given => the callback function is calling on the every render cycle
+
+3. Value is given on Dependency Array=> the callback function dependent on the dependency value=> 
+
+useEffect=>  function is calling after the render component
+
+useLayoutEffect=> before render
+
+API calling in React=>
+
+1. useEffect=>
+
+2. Normal Javascipt
+3. External npm package=> axios
+4. API toolkit library=> RTK query, tanstack query
+
+Normal JavaScript
+
+API=>
+
+Base Url=> https://fakestoreapi.com
+End Point=> /products
+
+Base URl=> not changable Endpoint=> change 
+
+How to install dotenv
+
+npm install dotenv
+
+Promise=> 3 states =>
+
+1. pending
+
+2. fulfilled
+
+3. Rejected
+
+try{
+      const response=fetch(`${import.meta.env.VITE_BC_URL}/products`).then((response)=>response);
+      console.log(response);
+      if(!response.ok){
+        throw new Error("API failed");
+      }
+      else{
+        const data=response.then((data)=>data);
+      setProducts([...data]);
+      }
+    }catch(error){
+      console.log("error",error)
+    }
+
+
+1. env=> enviroment
+Global state=>
+
+
+1. Simple React =>
+
+2. State Managment Tools =>
